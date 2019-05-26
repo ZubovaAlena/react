@@ -1,33 +1,18 @@
 import React from "react";
+import Home from './components/Home';
+import About from './components/About';
+import Image from './components/Image';
+import Contact from './components/Contact';
+
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
-import { Switch } from 'react-router'
+import { Switch } from 'react-router';
 
 const history = createBrowserHistory();
 
-const Home = () => (
-    <div>
-        <h2>добро пожаловать на наш сайт</h2>
-    </div>
-);
-const About = () => (
-    <div>
-        <h2>React-route</h2>
-    </div>
-);
-const Contact = () => (
-    <div>
-        <h2>+79999999999</h2>
-    </div>
-);
-const Image = () => (
-    <div>
-        <img src="https://im0-tub-ru.yandex.net/i?id=1e12e9bd384e571bc70f162d1293355b&n=13&exp=1"/>
-    </div>
-);
 class Menu extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.textInput = React.createRef();
         this.state = {
