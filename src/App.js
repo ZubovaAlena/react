@@ -9,6 +9,7 @@ import { createBrowserHistory } from "history";
 import { Switch } from 'react-router';
 
 const history = createBrowserHistory();
+const API = 'https://api.thecatapi.com/v1/images/search';
 
 class Menu extends React.Component {
     constructor(props) {
@@ -16,15 +17,31 @@ class Menu extends React.Component {
 
         this.textInput = React.createRef();
         this.state = {
-            value: ''
+            value: '',
+            image: []
         }
     }
+    componentWillMount() {
+        fetch(API)
+            .then(response => response.json())
+            .then(data => this.setState({ image: data }));
+    }
+    componentDidMount() {
+    }
+    newRandom =(event) => {
+        event.preventDefault();
+        fetch(API)
+            .then(response => response.json())
+            .then(data => this.setState({ image: data }));
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
         this.setState({ value: this.textInput.current.value})
     };
     render() {
+        const { image } = this.state;
+
         return (
             <BrowserRouter history={history}>
                     <div>
@@ -39,6 +56,14 @@ class Menu extends React.Component {
                                 <input type="text" ref={this.textInput} />
                                 <button>Отправить</button>
                             </form>
+                            <div>
+                                {image.map(images =>
+                                    <div key={images.id}>
+                                        <img src={images.url}/>
+                                    </div>
+                                )}
+                                <button onClick={this.newRandom}>обновить</button>
+                            </div>
                         </div>
                         <hr />
                         <h3>Value: {this.state.value}</h3>
