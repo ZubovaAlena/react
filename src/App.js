@@ -3,10 +3,13 @@ import Home from './components/Home';
 import About from './components/About';
 import Image from './components/Image';
 import Contact from './components/Contact';
+import Counter from './components/Counter';
+
 
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { Switch } from 'react-router';
+
 
 const history = createBrowserHistory();
 const API = 'https://api.thecatapi.com/v1/images/search';
@@ -26,8 +29,7 @@ class Menu extends React.Component {
             .then(response => response.json())
             .then(data => this.setState({ image: data }));
     }
-    componentDidMount() {
-    }
+
     newRandom =(event) => {
         event.preventDefault();
         fetch(API)
@@ -50,6 +52,7 @@ class Menu extends React.Component {
                             <li><Link to="/about">About</Link></li>
                             <li><Link to="/contacts">Contact</Link></li>
                             <li><Link to="/image">Image</Link></li>
+                            <li><Link to="/counter">Counter</Link></li>
                         </ul>
                         <div>
                             <form onSubmit={this.handleSubmit}>
@@ -72,6 +75,7 @@ class Menu extends React.Component {
                             <Route path="/about" component={About} />
                             <Route path="/contacts" component={Contact} />
                             <Route path="/image" component={Image} />
+                            <Route path="/counter" component={Counter} />
                         </Switch>
                     </div>
             </BrowserRouter>
