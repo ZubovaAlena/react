@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import Home from './components/Home';
 import About from './components/About';
 import Image from './components/Image';
@@ -6,7 +6,7 @@ import Contact from './components/Contact';
 import Counter from './components/Counter';
 
 
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { Switch } from 'react-router';
 
@@ -41,11 +41,12 @@ class Menu extends React.Component {
         event.preventDefault();
         this.setState({ value: this.textInput.current.value})
     };
+
     render() {
         const { image } = this.state;
 
         return (
-            <BrowserRouter history={history}>
+            <Router history={history}>
                     <div>
                         <ul>
                             <li><Link to="/">Home</Link></li>
@@ -56,7 +57,7 @@ class Menu extends React.Component {
                         </ul>
                         <div>
                             <form onSubmit={this.handleSubmit}>
-                                <input type="text" ref={this.textInput} />
+                                <input type="number" ref={this.textInput} />
                                 <button>Отправить</button>
                             </form>
                             <div>
@@ -78,7 +79,7 @@ class Menu extends React.Component {
                             <Route path="/counter" component={Counter} />
                         </Switch>
                     </div>
-            </BrowserRouter>
+            </Router>
         )
     }
 }
