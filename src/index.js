@@ -21,7 +21,7 @@ function reduser (state=0, action) {
 }
 function main() {
     window.removeEventListener('load', main, false);
-    const store = createStore(reduser, applyMiddleware(logger));
+    const store = createStore(reduser, applyMiddleware(logger), );
 
 ReactDOM.render(
     <Provider store={store}>

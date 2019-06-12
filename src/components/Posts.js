@@ -1,9 +1,11 @@
 import React from 'react';
 import {Helmet} from 'react-helmet';
-import BrandLists from './BrandList';
+import BrandLists from '../brands';
+import { Link } from 'react-router-dom';
+
 
 function Posts() {
-    const BrandList = [BrandLists][0];
+    const brandList = [BrandLists][0];
 
     return (
         <div className='Posts'>
@@ -12,10 +14,12 @@ function Posts() {
                 <meta name="description" content="posts" />
             </Helmet>
             <div>
-                {BrandList.map((post) =>
+                {brandList.map((post) =>
                     <div key={post.slug}>
-                        <h3>{post.title}</h3>
-                        <img src={post.brand_logo_url}/>
+                        <Link to={`/posts/${post.slug}`}>
+                            {post.brand_logo_url === null ? <h3>{post.title}</h3> : <img src={post.brand_logo_url}/>}
+
+                    </Link>
                     </div>
                 )}
             </div>

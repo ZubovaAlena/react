@@ -5,6 +5,7 @@ import Image from './components/Image';
 import Contact from './components/Contact';
 import Counter from './components/Counter';
 import Posts from './components/Posts';
+import ItemDetail from './components/ItemDetail';
 
 import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -77,7 +78,8 @@ class Menu extends React.Component {
                         <Route path="/contacts" component={Contact} />
                         <Route path="/image" component={Image} />
                         <Route path="/counter" component={Counter} />
-                        <Route path="/posts" component={Posts} />
+                        <Route exact path="/posts" component={Posts} />
+                        <Route path="/posts/:slug" component={ItemDetail} />
                     </Switch>
                 </div>
             </Router>
