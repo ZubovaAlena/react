@@ -6,7 +6,7 @@ import logger from 'redux-logger';
 
 import App from './App';
 
-function reduser (state=0, action) {
+function reducer (state=0, action) {
 
     switch (action.type) {
         case 'INCREMENT':
@@ -21,7 +21,7 @@ function reduser (state=0, action) {
 }
 function main() {
     window.removeEventListener('load', main, false);
-    const store = createStore(reduser, applyMiddleware(logger), );
+    const store = createStore(reducer, applyMiddleware(logger), );
 
 ReactDOM.render(
     <Provider store={store}>

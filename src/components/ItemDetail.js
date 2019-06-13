@@ -1,7 +1,7 @@
 import React from 'react';
 import BrandLists from '../brands';
 
-function Item({ match }) {
+function ItemDetail({ match }) {
     const brandList = [BrandLists][0];
     const item = brandList.find(({ slug }) => slug === match.params.slug);
 
@@ -12,4 +12,4 @@ function Item({ match }) {
        </div>
    )
 }
-export default (Item);
+export default ItemDetail;

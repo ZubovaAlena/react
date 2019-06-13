@@ -6,6 +6,7 @@ import Contact from './components/Contact';
 import Counter from './components/Counter';
 import Posts from './components/Posts';
 import ItemDetail from './components/ItemDetail';
+import Button from './components/Button';
 
 import { Router, Route, Link } from "react-router-dom";
 import { createBrowserHistory } from "history";
@@ -55,6 +56,7 @@ class Menu extends React.Component {
                         <li><Link to="/image">Image</Link></li>
                         <li><Link to="/counter">Counter</Link></li>
                         <li><Link to="/posts">Posts</Link></li>
+                        <li><Link to="/button">Button</Link></li>
                     </ul>
                     <div>
                         <form onSubmit={this.handleSubmit}>
@@ -80,6 +82,7 @@ class Menu extends React.Component {
                         <Route path="/counter" component={Counter} />
                         <Route exact path="/posts" component={Posts} />
                         <Route path="/posts/:slug" component={ItemDetail} />
+                        <Route path="/button" component={Button} />
                     </Switch>
                 </div>
             </Router>
